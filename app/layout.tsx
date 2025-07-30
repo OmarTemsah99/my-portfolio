@@ -12,6 +12,7 @@ const roboto = Roboto({
 });
 
 import "./globals.css";
+import { NavbarProvider } from "./NavbarProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,7 +28,10 @@ export default function RootLayout({
     <html lang="en" className={roboto.variable}>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <NavbarProvider />
+            {children}
+          </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

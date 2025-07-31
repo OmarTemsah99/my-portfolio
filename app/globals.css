@@ -314,3 +314,7 @@
   background-image: --value(--overlay- *);
   box-shadow: --value(--shadow- *);
 }
+
+.text-primary {
+  @apply text-blue-400;
+}

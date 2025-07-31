@@ -1,8 +1,10 @@
 "use client";
 
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import { useColorScheme } from "@mui/material/styles";
-import logo from "../../public/logo3.webp";
+import logo from "../../public/logo1.webp";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,7 +33,7 @@ const Navbar = () => {
           <Typography
             variant="h6"
             component="div"
-            className="font-bold text-lg">
+            className="font-bold text-lg text-primary">
             Omar.T.Temsah
           </Typography>
         </Box>
@@ -39,12 +41,16 @@ const Navbar = () => {
         {/* Navigation Links */}
         <Box className="flex gap-2">
           {pages.map((page) => (
-            <Button key={page}>
+            <Button key={page} className="text-primary">
               <Link href={page === "home" ? "/" : `/${page}`}>{page}</Link>
             </Button>
           ))}
           <Button onClick={toggleColorMode}>
-            Toggle to {mode === "light" ? "Dark" : "Light"} Mode
+            {mode === "light" ? (
+              <DarkModeIcon className="text-primary" />
+            ) : (
+              <LightModeIcon className="text-amber-300" />
+            )}
           </Button>
         </Box>
       </Toolbar>

@@ -204,7 +204,6 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
     <>
       <AppBar
         position="static"
-        color="transparent"
         elevation={0}
         sx={{
           backdropFilter: "blur(10px)",
@@ -242,7 +241,7 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
                       ? "rgba(255, 255, 255, 0.6)"
                       : "rgba(0, 0, 0, 0.6)",
                 }}>
-                Developer
+                Full Stack Developer
               </Typography>
             </Box>
           </Box>

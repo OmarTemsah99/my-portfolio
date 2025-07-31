@@ -12,7 +12,6 @@ const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
   return (
     <AppBar
       position="static"
-      color="transparent"
       elevation={0}
       sx={{
         backdropFilter: "blur(10px)",

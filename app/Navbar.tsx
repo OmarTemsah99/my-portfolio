@@ -83,7 +83,7 @@ function Navbar({
                   color: darkMode ? "#90caf9" : "#bbdefb",
                 },
               }}>
-              LOGO
+              Omar.T.Temsah
             </Typography>
           </Box>
 
@@ -104,7 +104,7 @@ function Navbar({
                 textDecoration: "none",
                 flexGrow: 1,
               }}>
-              LOGO
+              Omar.T.Temsah
             </Typography>
 
             {/* Dark Mode Toggle - Mobile */}

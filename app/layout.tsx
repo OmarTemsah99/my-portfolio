@@ -11,9 +11,9 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+import { CssBaseline, InitColorSchemeScript } from "@mui/material";
 import "./globals.css";
 import Navbar from "./Navbar/Navbar";
-import { CssBaseline, InitColorSchemeScript } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Create Next App",

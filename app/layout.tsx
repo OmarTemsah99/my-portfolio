@@ -12,7 +12,8 @@ const roboto = Roboto({
 });
 
 import "./globals.css";
-import { NavbarProvider } from "./NavbarProvider";
+import Navbar from "./Navbar/Navbar";
+import { CssBaseline, InitColorSchemeScript } from "@mui/material";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,11 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.variable}>
+    <html lang="en" className={roboto.variable} suppressHydrationWarning>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
-            <NavbarProvider />
+            <CssBaseline />
+            <InitColorSchemeScript attribute="class" />
+            <Navbar />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

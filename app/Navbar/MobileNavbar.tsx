@@ -24,7 +24,7 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
   return (
     <>
       <AppBar
-        position="static"
+        position="absolute"
         elevation={0}
         sx={styles.appBar}
         className={navbarClasses.appBarContainer}>

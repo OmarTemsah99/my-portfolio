@@ -13,7 +13,7 @@ const roboto = Roboto({
 
 import { CssBaseline, InitColorSchemeScript } from "@mui/material";
 import "./globals.css";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "OmarTemsah-Dev-Portfolio",

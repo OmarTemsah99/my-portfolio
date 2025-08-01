@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import logo from "../../public/logo.webp";
+import logo from "../../../public/logo.webp";
 import { navbarClasses } from "./navbarStyles";
 import { getTextColor, ThemeMode } from "./navbarUtils";
 

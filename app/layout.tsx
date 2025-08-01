@@ -30,8 +30,8 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
             <InitColorSchemeScript attribute="class" />
+            <CssBaseline />
             <Navbar />
             {children}
           </ThemeProvider>

@@ -3,6 +3,10 @@ import { ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import theme from "./theme";
+import { CssBaseline, InitColorSchemeScript } from "@mui/material";
+import "./globals.css";
+import Navbar from "./components/Navbar/Navbar";
+import AnimatedBackground from "./components/Background/AnimatedBackground";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -10,10 +14,6 @@ const roboto = Roboto({
   display: "swap",
   variable: "--font-roboto",
 });
-
-import { CssBaseline, InitColorSchemeScript } from "@mui/material";
-import "./globals.css";
-import Navbar from "./components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "OmarTemsah-Dev-Portfolio",
@@ -33,7 +33,7 @@ export default function RootLayout({
             <InitColorSchemeScript attribute="class" />
             <CssBaseline />
             <Navbar />
-            {children}
+            <AnimatedBackground>{children}</AnimatedBackground>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

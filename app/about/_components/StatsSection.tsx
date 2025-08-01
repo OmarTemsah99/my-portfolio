@@ -30,10 +30,12 @@ const StatsSection = ({ isDark }: { isDark: boolean }) => (
           sx={{
             display: "flex",
             gap: 3,
-            animation:
-              rowIndex === 0
-                ? "slideRightToLeft 20s linear infinite"
-                : "slideLeftToRight 25s linear infinite",
+            animation: `
+              ${rowIndex === 0 ? "slideRightToLeft" : "slideLeftToRight"} 
+              ${rowIndex === 0 ? "20s" : "25s"} 
+              linear 
+              infinite
+            `,
             width: "max-content",
           }}>
           {[...row, ...row].map((stat, index) => (

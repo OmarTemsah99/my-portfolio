@@ -38,36 +38,6 @@ const AboutPage = () => {
 
   return (
     <>
-      {/* Add CSS keyframes for continuous sliding */}
-      <style jsx global>{`
-        @keyframes slideRightToLeft {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        @keyframes slideLeftToRight {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        @keyframes gradientShift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-      `}</style>
       <Container
         maxWidth="lg"
         sx={{

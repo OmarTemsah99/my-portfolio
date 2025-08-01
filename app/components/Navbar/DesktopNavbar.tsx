@@ -16,7 +16,7 @@ const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
 
   return (
     <AppBar
-      position="absolute"
+      position="sticky"
       elevation={0}
       sx={styles.appBar}
       className={navbarClasses.appBarContainer}>

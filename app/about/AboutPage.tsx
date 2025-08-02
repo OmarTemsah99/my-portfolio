@@ -4,10 +4,12 @@ import { Box, Container, Typography } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { useMounted } from "../hooks/useMounted";
-import CallToActionSection from "./_components/CallToActionSection";
-import HeroSection from "./_components/HeroSection";
-import ServicesSection from "./_components/ServicesSection";
-import StatsSection from "./_components/StatsSection";
+import {
+  CallToActionSection,
+  HeroSection,
+  ServicesSection,
+  StatsSection,
+} from "./_components";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);

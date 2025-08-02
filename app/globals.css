@@ -318,17 +318,7 @@
 .text-primary {
   @apply text-blue-400;
 }
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
+/* Slider Animation */
 @keyframes slideRightToLeft {
   0% {
     transform: translateX(0);
@@ -347,6 +337,7 @@
   }
 }
 
+/* Text Animation */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -367,6 +358,17 @@
   51%,
   100% {
     opacity: 0;
+  }
+}
+
+/* BG animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
 

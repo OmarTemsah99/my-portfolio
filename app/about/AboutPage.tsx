@@ -3,6 +3,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import { useMounted } from "../hooks/useMounted";
 import CallToActionSection from "./_components/CallToActionSection";
 import HeroSection from "./_components/HeroSection";
 import ServicesSection from "./_components/ServicesSection";
@@ -10,13 +11,12 @@ import StatsSection from "./_components/StatsSection";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const { mode } = useColorScheme();
 
   useEffect(() => {
-    setMounted(true);
-    setIsVisible(true);
-  }, []);
+    if (mounted) setIsVisible(true);
+  }, [mounted]);
 
   const isDark = mounted ? mode === "dark" : false;
 

@@ -1,5 +1,15 @@
 "use client";
 
+import {
+  HeroButton,
+  HeroButtons,
+  HeroDescription,
+  HeroIntro,
+  HeroSection,
+  HeroSubtitle,
+  HeroText,
+  HeroTitle,
+} from "@/app/hero";
 import BoltIcon from "@mui/icons-material/Bolt";
 import CodeIcon from "@mui/icons-material/Code";
 import PersonIcon from "@mui/icons-material/Person";
@@ -8,14 +18,6 @@ import { Box, Container, Typography } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useMounted } from "./hooks/useMounted";
 import { useTypewriterEffect } from "./hooks/useTypewriterEffect";
-import { HeroSection } from "./hero/HeroSection";
-import { HeroIntro } from "./hero/HeroIntro";
-import { HeroTitle } from "./hero/HeroTitle";
-import { HeroText } from "./hero/HeroText";
-import { HeroSubtitle } from "./hero/HeroSubtitle";
-import { HeroDescription } from "./hero/HeroDescription";
-import { HeroButtons } from "./hero/HeroButtons";
-import { HeroButton } from "./hero/HeroButton";
 
 export default function Home() {
   const mounted = useMounted();

@@ -79,7 +79,7 @@ const SkillsPage = () => {
       </Slide>
 
       {/* Technical Skills Section */}
-      <Fade in={isVisible} timeout={1500}>
+      <Fade in={isVisible} timeout={2500}>
         <Box sx={{ mb: { xs: 6, md: 8 } }}>
           <Typography
             variant="h3"
@@ -129,7 +129,7 @@ const SkillsPage = () => {
       </Fade>
 
       {/* Interpersonal Skills Section */}
-      <Fade in={isVisible} timeout={2000}>
+      <Fade in={isVisible} timeout={3000}>
         <Box
           sx={{
             textAlign: "center",

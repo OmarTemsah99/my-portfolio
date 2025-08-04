@@ -13,11 +13,14 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 
   {
-    // Custom overrides
     rules: {
-      "@typescript-eslint/no-require-imports": "off", // allow require()
-      "@typescript-eslint/no-unused-vars": "warn", // optional: change to 'off' if needed
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-expressions": "off",
     },
+  },
+
+  {
+    ignores: ["app/generated/**"],
   },
 ];
 

@@ -1,24 +1,19 @@
-"use client";
+import { Metadata } from "next";
+import { getProjects } from "./useGetProjects";
+import ProjectsPage from "./ProjectsPage";
 
-import { Button, Card, CardContent } from "@mui/material";
+export const metadata: Metadata = {
+  title: "Projects - Omar Temsah | Full Stack Developer Portfolio",
+  description:
+    "Explore Omar Temsah's portfolio of full-stack projects including React apps, Node.js backends, and innovative web solutions.",
+};
 
-export default function ProjectsPage() {
-  return (
-    <div className="p-6 space-y-4">
-      <Card className="shadow-xl">
-        <CardContent>
-          <h2 className="text-xl font-bold">Project Title</h2>
-          <p className="text-gray-700">Description here...</p>
-          <div className="mt-4 flex gap-2">
-            <Button variant="contained" color="primary">
-              GitHub
-            </Button>
-            <Button variant="outlined" color="secondary">
-              Live Demo
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
+export default async function Projects() {
+  try {
+    const projects = await getProjects();
+    return <ProjectsPage projects={projects} />;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return <ProjectsPage projects={[]} />;
+  }
 }

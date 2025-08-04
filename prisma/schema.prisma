@@ -27,3 +27,14 @@ model Skill {
   skillCategoryId String        @db.ObjectId
   skillCategory   SkillCategory @relation(fields: [skillCategoryId], references: [id], onDelete: Cascade)
 }
+
+model Project {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  image       String
+  tags        String[]
+  demoUrl     String?
+  githubUrl   String?
+  liveUrl     String?
+}

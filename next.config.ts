@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    serverComponentsExternalPackages: ["nodemailer"],
+  },
   // Your other Next.js config options here
 };
 

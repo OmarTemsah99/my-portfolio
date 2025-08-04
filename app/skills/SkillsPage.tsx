@@ -13,9 +13,28 @@ import {
 } from "./_components";
 import { funFacts } from "./Constants/funFacts";
 import { interpersonalSkills } from "./Constants/interpersonalSkills";
-import { skillCategories } from "./Constants/skillCategories";
+import { getSkillCategoryIcon } from "./Constants/SkillCategoryIcons";
 
-const SkillsPage = () => {
+interface SkillFromProps {
+  name: string;
+  level: number;
+}
+
+interface SkillCategoryFromProps {
+  id: string;
+  title: string;
+  skills: SkillFromProps[];
+  icon: string;
+  color: string;
+  gradient: string;
+  delay: number;
+}
+
+interface SkillsPageProps {
+  skillCategories: SkillCategoryFromProps[];
+}
+
+const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const mounted = useMounted();
   const { mode } = useColorScheme();
@@ -93,38 +112,50 @@ const SkillsPage = () => {
             💻 Technical Skills
           </Typography>
 
-          <Grid container spacing={4}>
-            {skillCategories.map((category, categoryIndex) => (
-              <Grid key={categoryIndex} size={{ xs: 12, md: 6 }}>
-                <SkillCard
-                  title={category.title}
-                  icon={category.icon}
-                  color={category.color}
-                  gradient={category.gradient}
-                  isDark={isDark}
-                  direction={categoryIndex % 2 === 0 ? "right" : "left"}
-                  isVisible={isVisible}
-                  delay={category.delay}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 3,
-                    }}>
-                    {category.skills.map((skill, skillIndex) => (
-                      <ProgressBar
-                        key={skillIndex}
-                        value={skill.level}
-                        color={category.color}
-                        gradient={category.gradient}
-                        label={skill.name}
-                      />
-                    ))}
-                  </Box>
-                </SkillCard>
-              </Grid>
-            ))}
-          </Grid>
+          {skillCategories.length === 0 ? (
+            <Typography
+              variant="body1"
+              sx={{
+                color: "rgba(255, 255, 255, 0.7)",
+                textAlign: "center",
+                fontStyle: "italic",
+              }}>
+              No skills data available at the moment.
+            </Typography>
+          ) : (
+            <Grid container spacing={4}>
+              {skillCategories.map((category, categoryIndex) => (
+                <Grid key={category.id} size={{ xs: 12, md: 6 }}>
+                  <SkillCard
+                    title={category.title}
+                    icon={getSkillCategoryIcon(category.icon)}
+                    color={category.color}
+                    gradient={category.gradient}
+                    isDark={isDark}
+                    direction={categoryIndex % 2 === 0 ? "right" : "left"}
+                    isVisible={isVisible}
+                    delay={category.delay}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 3,
+                      }}>
+                      {category.skills.map((skill, skillIndex) => (
+                        <ProgressBar
+                          key={skillIndex}
+                          value={skill.level}
+                          color={category.color}
+                          gradient={category.gradient}
+                          label={skill.name}
+                        />
+                      ))}
+                    </Box>
+                  </SkillCard>
+                </Grid>
+              ))}
+            </Grid>
+          )}
         </Box>
       </Fade>
 

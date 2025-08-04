@@ -1,5 +1,5 @@
-// app/contact/_components/ContactFormSection.tsx
 "use client";
+
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { Fade } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
@@ -11,6 +11,20 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import IconButton from "@mui/material/IconButton";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import toast, { Toaster } from "react-hot-toast";
+
+// Define form schema with Zod
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const ContactFormSection = ({
   isVisible,
@@ -19,6 +33,44 @@ const ContactFormSection = ({
   isVisible: boolean;
   isDark: boolean;
 }) => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = async (formData: FormData) => {
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          errorData.error || errorData.message || "Failed to send message"
+        );
+      }
+
+      toast.success("Message sent successfully!");
+      reset();
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "An error occurred while sending the message"
+      );
+    }
+  };
+
   return (
     <Fade in={isVisible} timeout={2000}>
       <Box
@@ -47,6 +99,20 @@ const ContactFormSection = ({
             zIndex: -1,
           },
         }}>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              background: isDark ? "#333" : "#fff",
+              color: isDark ? "#fff" : "#333",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              borderRadius: "12px",
+              padding: "16px",
+              fontSize: "14px",
+            },
+          }}
+        />
+
         <Typography
           variant="h4"
           sx={{
@@ -61,6 +127,7 @@ const ContactFormSection = ({
 
         <Box
           component="form"
+          onSubmit={handleSubmit(onSubmit)}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -72,6 +139,9 @@ const ContactFormSection = ({
             label="Your Name"
             variant="outlined"
             fullWidth
+            {...register("name")}
+            error={!!errors.name}
+            helperText={errors.name?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
                 color: "rgba(255, 255, 255, 0.9)",
@@ -81,9 +151,18 @@ const ContactFormSection = ({
                 "&:hover fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.5)",
                 },
+                "&.Mui-focused fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.7)",
+                },
               },
               "& .MuiInputLabel-root": {
                 color: "rgba(255, 255, 255, 0.7)",
+                "&.Mui-focused": {
+                  color: "rgba(255, 255, 255, 0.9)",
+                },
+              },
+              "& .MuiFormHelperText-root": {
+                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -92,6 +171,9 @@ const ContactFormSection = ({
             label="Your Email"
             variant="outlined"
             fullWidth
+            {...register("email")}
+            error={!!errors.email}
+            helperText={errors.email?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
                 color: "rgba(255, 255, 255, 0.9)",
@@ -101,9 +183,50 @@ const ContactFormSection = ({
                 "&:hover fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.5)",
                 },
+                "&.Mui-focused fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.7)",
+                },
               },
               "& .MuiInputLabel-root": {
                 color: "rgba(255, 255, 255, 0.7)",
+                "&.Mui-focused": {
+                  color: "rgba(255, 255, 255, 0.9)",
+                },
+              },
+              "& .MuiFormHelperText-root": {
+                color: "rgba(255, 100, 100, 0.8)",
+              },
+            }}
+          />
+
+          <TextField
+            label="Subject"
+            variant="outlined"
+            fullWidth
+            {...register("subject")}
+            error={!!errors.subject}
+            helperText={errors.subject?.message}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                color: "rgba(255, 255, 255, 0.9)",
+                "& fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.3)",
+                },
+                "&:hover fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.5)",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.7)",
+                },
+              },
+              "& .MuiInputLabel-root": {
+                color: "rgba(255, 255, 255, 0.7)",
+                "&.Mui-focused": {
+                  color: "rgba(255, 255, 255, 0.9)",
+                },
+              },
+              "& .MuiFormHelperText-root": {
+                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -114,6 +237,9 @@ const ContactFormSection = ({
             multiline
             rows={4}
             fullWidth
+            {...register("message")}
+            error={!!errors.message}
+            helperText={errors.message?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
                 color: "rgba(255, 255, 255, 0.9)",
@@ -123,9 +249,18 @@ const ContactFormSection = ({
                 "&:hover fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.5)",
                 },
+                "&.Mui-focused fieldset": {
+                  borderColor: "rgba(255, 255, 255, 0.7)",
+                },
               },
               "& .MuiInputLabel-root": {
                 color: "rgba(255, 255, 255, 0.7)",
+                "&.Mui-focused": {
+                  color: "rgba(255, 255, 255, 0.9)",
+                },
+              },
+              "& .MuiFormHelperText-root": {
+                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -134,6 +269,7 @@ const ContactFormSection = ({
             type="submit"
             variant="contained"
             size="large"
+            disabled={isSubmitting}
             sx={{
               background: "linear-gradient(45deg, #8b5cf6, #06b6d4)",
               backgroundSize: "200% 200%",
@@ -151,8 +287,13 @@ const ContactFormSection = ({
                 transform: "translateY(-3px)",
                 boxShadow: "0 12px 40px rgba(139, 92, 246, 0.4)",
               },
+              "&:disabled": {
+                opacity: 0.7,
+                transform: "none",
+                animation: "none",
+              },
             }}>
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </Button>
         </Box>
 

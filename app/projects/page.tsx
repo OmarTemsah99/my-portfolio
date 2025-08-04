@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { getProjects } from "./useGetProjects";
 import ProjectsPage from "./ProjectsPage";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Projects - Omar Temsah | Full Stack Developer Portfolio",
   description:

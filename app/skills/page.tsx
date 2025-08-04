@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import SkillsPage from "./SkillsPage";
 import { prisma } from "@/prisma/client";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Skills - Omar Temsah | Full Stack Developer Technical Arsenal",
   description:
@@ -102,7 +104,5 @@ export default async function Skills() {
 
     // Fallback to empty array if database fails
     return <SkillsPage skillCategories={[]} />;
-  } finally {
-    await prisma.$disconnect();
   }
 }

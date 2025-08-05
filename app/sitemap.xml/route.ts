@@ -1,7 +1,7 @@
 import { type NextRequest } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const baseUrl = "https://my-portfolio-three-plum-35.vercel.app";
+  const baseUrl = "https://omar-temsah-dev-portfolio.vercel.app";
 
   const urls = [
     "",

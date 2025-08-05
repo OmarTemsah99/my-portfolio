@@ -7,7 +7,6 @@ const theme = createTheme({
   },
   colorSchemes: {
     dark: true,
-    light: true,
   },
   typography: {
     fontFamily: "var(--font-roboto)",

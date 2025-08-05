@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="en" className={roboto.variable} suppressHydrationWarning>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <InitColorSchemeScript attribute="class" />
           <ThemeProvider theme={theme}>
-            <InitColorSchemeScript attribute="class" />
             <CssBaseline />
             <Navbar />
             <AnimatedBackground>{children}</AnimatedBackground>

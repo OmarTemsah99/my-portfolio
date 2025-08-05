@@ -29,7 +29,11 @@ export default function RootLayout({
     <html lang="en" className={roboto.variable} suppressHydrationWarning>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <InitColorSchemeScript attribute="class" />
+          <InitColorSchemeScript
+            attribute="class"
+            defaultMode="system"
+            modeStorageKey="mui-mode"
+          />
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <Navbar />

@@ -14,8 +14,9 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import CodeIcon from "@mui/icons-material/Code";
 import PersonIcon from "@mui/icons-material/Person";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
+import CustomLoader from "./components/CustomLoader";
 import { useMounted } from "./hooks/useMounted";
 import { useTypewriterEffect } from "./hooks/useTypewriterEffect";
 
@@ -27,19 +28,7 @@ export default function Home() {
   const isVisible = mounted;
 
   if (!mounted) {
-    return (
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}>
-        <Typography variant="h4" sx={{ color: "white" }}>
-          Loading...
-        </Typography>
-      </Box>
-    );
+    return <CustomLoader />;
   }
 
   return (

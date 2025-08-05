@@ -3,10 +3,21 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   cssVariables: {
-    colorSchemeSelector: "class", // Or 'media' for system preference
+    colorSchemeSelector: "class",
   },
   colorSchemes: {
-    dark: true,
+    light: {
+      palette: {
+        mode: "light",
+        // Add your light theme colors here
+      },
+    },
+    dark: {
+      palette: {
+        mode: "dark",
+        // Add your dark theme colors here
+      },
+    },
   },
   typography: {
     fontFamily: "var(--font-roboto)",

@@ -28,13 +28,17 @@ export const capitalize = (str: string): string => {
 };
 
 // Theme mode type
-export type ThemeMode = "light" | "dark" | "system" | undefined;
+export type ThemeMode = "light" | "dark" | "system";
 
-// Helper to resolve system mode to actual theme
 export const resolveThemeMode = (mode: ThemeMode): "light" | "dark" => {
-  if (mode === "system" || mode === undefined) {
-    // Default to light theme when system or undefined
-    // In a real app, you might want to detect system preference
+  if (mode === "system") {
+    // Detect system preference
+    if (typeof window !== "undefined" && window.matchMedia) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    // Default to light if can't detect system preference
     return "light";
   }
   return mode;

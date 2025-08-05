@@ -3,6 +3,7 @@
 import { Box, Container, Fade, Grid, Slide, Typography } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import CustomLoader from "../components/CustomLoader";
 import { useMounted } from "../hooks/useMounted";
 import {
   FactCard,
@@ -46,19 +47,7 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
   const isDark = mounted ? mode === "dark" : false;
 
   if (!mounted) {
-    return (
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}>
-        <Typography variant="h4" sx={{ color: "white" }}>
-          Loading...
-        </Typography>
-      </Box>
-    );
+    return <CustomLoader />;
   }
 
   return (

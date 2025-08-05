@@ -3,6 +3,7 @@
 import { Box, Container, Fade, Grid, Typography } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import CustomLoader from "../components/CustomLoader";
 import { useMounted } from "../hooks/useMounted";
 import { ProjectCard, ProjectStats, SectionHeader } from "./_components";
 import { projectStats } from "./constants/projectStats";
@@ -34,19 +35,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
   const isDark = mounted ? mode === "dark" : false;
 
   if (!mounted) {
-    return (
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}>
-        <Typography variant="h4" sx={{ color: "white" }}>
-          Loading...
-        </Typography>
-      </Box>
-    );
+    return <CustomLoader />;
   }
 
   return (

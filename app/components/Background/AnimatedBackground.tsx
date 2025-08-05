@@ -74,22 +74,43 @@ const AnimatedGrid = ({ isDark }: { isDark: boolean }) => {
 const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
   const [isMounted, setIsMounted] = useState(false);
   const { mode } = useColorScheme();
+  const [resolvedMode, setResolvedMode] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    // Resolve the initial mode on client side
+    if (mode === "system") {
+      const systemDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      setResolvedMode(systemDark ? "dark" : "light");
+    } else {
+      setResolvedMode(mode || "light");
+    }
+  }, [mode]);
 
-  // Default to light theme during SSR to match the server
-  const isDark = isMounted ? mode === "dark" : false;
+  // Watch for system preference changes
+  useEffect(() => {
+    if (mode !== "system") return;
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      setResolvedMode(e.matches ? "dark" : "light");
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, [mode]);
 
   return (
     <Box
       sx={{
         minHeight: "100vh",
         position: "relative",
-        background: isDark
-          ? "linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)"
-          : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        background:
+          resolvedMode === "dark"
+            ? "linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)"
+            : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
@@ -97,8 +118,8 @@ const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
       {/* Only render animations on client side */}
       {isMounted && (
         <>
-          <AnimatedGrid isDark={isDark} />
-          <FloatingParticles isDark={isDark} />
+          <AnimatedGrid isDark={resolvedMode === "dark"} />
+          <FloatingParticles isDark={resolvedMode === "dark"} />
         </>
       )}
 

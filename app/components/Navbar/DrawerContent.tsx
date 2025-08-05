@@ -80,22 +80,22 @@ const DrawerContent = ({
         {pages.map((page, index) => (
           <Fade in={drawerOpen} timeout={300 + index * 100} key={page}>
             <ListItem disablePadding className={navbarClasses.drawerListItem}>
-              <ListItemButton onClick={onClose} sx={styles.listItemButton}>
+              <ListItemButton
+                component={Link}
+                href={getPageUrl(page)}
+                onClick={onClose}
+                sx={styles.listItemButton}>
                 <Box className={navbarClasses.drawerItemContent}>
                   <Box className={navbarClasses.drawerIcon}>
                     {getPageIcon(page)}
                   </Box>
-                  <Link
-                    href={getPageUrl(page)}
-                    className={navbarClasses.drawerLink}>
-                    <ListItemText
-                      primary={capitalize(page)}
-                      primaryTypographyProps={{
-                        fontWeight: 500,
-                        sx: { color: textColors.primary },
-                      }}
-                    />
-                  </Link>
+                  <ListItemText
+                    primary={capitalize(page)}
+                    primaryTypographyProps={{
+                      fontWeight: 500,
+                      sx: { color: textColors.primary },
+                    }}
+                  />
                 </Box>
               </ListItemButton>
             </ListItem>

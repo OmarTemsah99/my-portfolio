@@ -12,7 +12,6 @@ interface DesktopNavbarProps {
 
 const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
   const { mode } = useColorScheme();
-  // Use resolveThemeMode to ensure mode is always 'light' or 'dark', with correct typing
   const safeMode = resolveThemeMode(
     (mode ?? "light") as import("./navbarUtils").ThemeMode
   );
@@ -32,11 +31,11 @@ const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
           {pages.map((page) => (
             <Button
               key={page}
+              component={Link}
+              href={getPageUrl(page)}
               sx={styles.navButton}
               className={navbarClasses.navButton}>
-              <Link href={getPageUrl(page)} className={navbarClasses.navLink}>
-                {page}
-              </Link>
+              {page}
               <Box className={navbarClasses.navButtonOverlay} />
             </Button>
           ))}

@@ -1,10 +1,10 @@
 import { prisma } from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
-import {
-  SkillCategorySchema,
-  StandaloneSkillSchema,
-} from "./validationSchemas";
+// import { z } from "zod";
+// import {
+//   SkillCategorySchema,
+//   StandaloneSkillSchema,
+// } from "./validationSchemas";
 
 export async function GET(request: NextRequest) {
   try {

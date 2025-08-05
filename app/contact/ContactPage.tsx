@@ -19,7 +19,7 @@ const ContactPage = () => {
   const isDark = mounted ? mode === "dark" : false;
 
   if (!mounted) {
-    return <CustomLoader />;
+    return <CustomLoader variant="contact" message="Establishing connection" />;
   }
 
   return (

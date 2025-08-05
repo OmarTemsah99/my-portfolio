@@ -71,14 +71,22 @@ const AnimatedGrid = ({ isDark }: { isDark: boolean }) => {
   );
 };
 
-const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
+const AnimatedBackground = ({
+  children,
+  initialMode,
+}: {
+  children: React.ReactNode;
+  initialMode: "light" | "dark";
+}) => {
   const [isMounted, setIsMounted] = useState(false);
   const { mode } = useColorScheme();
-  const [resolvedMode, setResolvedMode] = useState<"light" | "dark">("light");
+  const [resolvedMode, setResolvedMode] = useState<"light" | "dark">(
+    initialMode
+  );
 
   useEffect(() => {
     setIsMounted(true);
-    // Resolve the initial mode on client side
+    // Update mode when color scheme changes
     if (mode === "system") {
       const systemDark = window.matchMedia(
         "(prefers-color-scheme: dark)"
@@ -115,15 +123,12 @@ const AnimatedBackground = ({ children }: { children: React.ReactNode }) => {
         alignItems: "center",
         overflow: "hidden",
       }}>
-      {/* Only render animations on client side */}
       {isMounted && (
         <>
           <AnimatedGrid isDark={resolvedMode === "dark"} />
           <FloatingParticles isDark={resolvedMode === "dark"} />
         </>
       )}
-
-      {/* Content container */}
       <Box sx={{ position: "relative", zIndex: 2, width: "100%" }}>
         {children}
       </Box>

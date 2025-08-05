@@ -35,7 +35,9 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
   const isDark = mounted ? mode === "dark" : false;
 
   if (!mounted) {
-    return <CustomLoader />;
+    return (
+      <CustomLoader variant="projects" message="Building project showcase" />
+    );
   }
 
   return (

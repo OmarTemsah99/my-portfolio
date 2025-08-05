@@ -25,6 +25,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialMode = "dark";
+
   return (
     <html lang="en" className={roboto.variable} suppressHydrationWarning>
       <body>
@@ -37,7 +39,9 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <Navbar />
-            <AnimatedBackground>{children}</AnimatedBackground>
+            <AnimatedBackground initialMode={initialMode}>
+              {children}
+            </AnimatedBackground>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

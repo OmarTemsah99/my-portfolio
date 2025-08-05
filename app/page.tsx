@@ -9,7 +9,7 @@ import {
   HeroSubtitle,
   HeroText,
   HeroTitle,
-} from "@/app/hero";
+} from "@/app/home";
 import BoltIcon from "@mui/icons-material/Bolt";
 import CodeIcon from "@mui/icons-material/Code";
 import PersonIcon from "@mui/icons-material/Person";
@@ -28,7 +28,9 @@ export default function Home() {
   const isVisible = mounted;
 
   if (!mounted) {
-    return <CustomLoader />;
+    return (
+      <CustomLoader variant="home" message="Initializing developer mode" />
+    );
   }
 
   return (

@@ -47,7 +47,7 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
   const isDark = mounted ? mode === "dark" : false;
 
   if (!mounted) {
-    return <CustomLoader />;
+    return <CustomLoader variant="skills" message="Compiling skill set" />;
   }
 
   return (

@@ -24,7 +24,7 @@ const AboutPage = () => {
   const isDark = mounted ? mode === "dark" : false;
 
   if (!mounted) {
-    return <CustomLoader />;
+    return <CustomLoader variant="about" message="Loading about page" />;
   }
 
   return (

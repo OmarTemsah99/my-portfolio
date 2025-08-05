@@ -4,7 +4,7 @@ import Link from "next/link";
 import LogoSection from "./LogoSection";
 import ModeToggleButton from "./ModeToggleButton";
 import { getNavbarStyles, navbarClasses } from "./navbarStyles";
-import { getPageUrl } from "./navbarUtils";
+import { getPageUrl, resolveThemeMode } from "./navbarUtils";
 
 interface DesktopNavbarProps {
   pages: string[];
@@ -12,7 +12,11 @@ interface DesktopNavbarProps {
 
 const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
   const { mode } = useColorScheme();
-  const styles = getNavbarStyles(mode);
+  // Use resolveThemeMode to ensure mode is always 'light' or 'dark', with correct typing
+  const safeMode = resolveThemeMode(
+    (mode ?? "light") as import("./navbarUtils").ThemeMode
+  );
+  const styles = getNavbarStyles(safeMode);
 
   return (
     <AppBar
@@ -21,7 +25,7 @@ const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
       sx={styles.appBar}
       className={navbarClasses.appBarContainer}>
       <Toolbar className={navbarClasses.toolbar}>
-        <LogoSection mode={mode} />
+        <LogoSection mode={safeMode} />
 
         {/* Navigation Links */}
         <Box className={navbarClasses.navContainer}>

@@ -35,6 +35,7 @@ const CustomLoader = () => {
           fill
           style={{ objectFit: "cover" }}
           priority
+          unoptimized
         />
       </Box>
     </Box>

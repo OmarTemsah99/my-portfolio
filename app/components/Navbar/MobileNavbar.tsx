@@ -7,6 +7,7 @@ import { useState } from "react";
 import DrawerContent from "./DrawerContent";
 import LogoSection from "./LogoSection";
 import { getNavbarStyles, navbarClasses } from "./navbarStyles";
+import { resolveThemeMode } from "./navbarUtils";
 
 interface MobileNavbarProps {
   pages: string[];
@@ -15,7 +16,11 @@ interface MobileNavbarProps {
 const MobileNavbar = ({ pages }: MobileNavbarProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { mode } = useColorScheme();
-  const styles = getNavbarStyles(mode);
+  // Use resolveThemeMode to ensure mode is always 'light' or 'dark', with correct typing
+  const safeMode = resolveThemeMode(
+    (mode ?? "light") as import("./navbarUtils").ThemeMode
+  );
+  const styles = getNavbarStyles(safeMode);
 
   const handleDrawerToggle = (open: boolean) => () => {
     setDrawerOpen(open);
@@ -29,7 +34,7 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
         sx={styles.appBar}
         className={navbarClasses.appBarContainer}>
         <Toolbar className={navbarClasses.mobileToolbar}>
-          <LogoSection isMobile mode={mode} />
+          <LogoSection isMobile mode={safeMode} />
 
           {/* Mobile Menu Button */}
           <IconButton
@@ -52,7 +57,7 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
         sx={styles.drawer}>
         <DrawerContent
           pages={pages}
-          mode={mode}
+          mode={safeMode}
           drawerOpen={drawerOpen}
           onClose={handleDrawerToggle(false)}
         />

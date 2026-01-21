@@ -55,7 +55,7 @@ const ContactFormSection = ({
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(
-          errorData.error || errorData.message || "Failed to send message"
+          errorData.error || errorData.message || "Failed to send message",
         );
       }
 
@@ -66,7 +66,7 @@ const ContactFormSection = ({
       toast.error(
         error instanceof Error
           ? error.message
-          : "An error occurred while sending the message"
+          : "An error occurred while sending the message",
       );
     }
   };
@@ -144,6 +144,7 @@ const ContactFormSection = ({
             helperText={errors.name?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
                 color: "rgba(255, 255, 255, 0.9)",
                 "& fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.3)",
@@ -176,6 +177,7 @@ const ContactFormSection = ({
             helperText={errors.email?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
                 color: "rgba(255, 255, 255, 0.9)",
                 "& fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.3)",
@@ -208,6 +210,7 @@ const ContactFormSection = ({
             helperText={errors.subject?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
                 color: "rgba(255, 255, 255, 0.9)",
                 "& fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.3)",
@@ -242,6 +245,7 @@ const ContactFormSection = ({
             helperText={errors.message?.message}
             sx={{
               "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
                 color: "rgba(255, 255, 255, 0.9)",
                 "& fieldset": {
                   borderColor: "rgba(255, 255, 255, 0.3)",
@@ -271,26 +275,24 @@ const ContactFormSection = ({
             size="large"
             disabled={isSubmitting}
             sx={{
-              background: "linear-gradient(45deg, #8b5cf6, #06b6d4)",
-              backgroundSize: "200% 200%",
-              animation: "gradientShift 3s ease infinite",
+              background: "#006FC6",
               color: "white",
               fontWeight: 600,
               fontSize: { xs: "1rem", sm: "1.1rem" },
               py: { xs: 1.5, sm: 2 },
               px: { xs: 3, sm: 4 },
-              borderRadius: "50px",
+              borderRadius: "12px",
               textTransform: "none",
-              boxShadow: "0 8px 32px rgba(139, 92, 246, 0.3)",
+              boxShadow: "0 8px 32px rgba(0, 111, 198, 0.3)",
               transition: "all 0.3s ease",
               "&:hover": {
                 transform: "translateY(-3px)",
-                boxShadow: "0 12px 40px rgba(139, 92, 246, 0.4)",
+                boxShadow: "0 12px 40px rgba(0, 111, 198, 0.4)",
+                background: "#004C8B",
               },
               "&:disabled": {
                 opacity: 0.7,
                 transform: "none",
-                animation: "none",
               },
             }}>
             {isSubmitting ? "Sending..." : "Send Message"}

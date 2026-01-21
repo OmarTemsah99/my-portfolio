@@ -17,11 +17,11 @@ const FloatingParticles = ({ isDark }: { isDark: boolean }) => {
         key={i}
         sx={{
           position: "absolute",
-          width: "2px",
-          height: "2px",
+          width: "4px",
+          height: "4px",
           backgroundColor: isDark
-            ? "rgba(139, 92, 246, 0.6)"
-            : "rgba(255, 255, 255, 0.8)",
+            ? "rgba(0, 111, 198, 0.6)"
+            : "rgba(0, 76, 139, 0.5)",
           borderRadius: "50%",
           animation: `float${i % 3} ${3 + (i % 4)}s infinite ease-in-out`,
           left: `${left}%`,
@@ -58,10 +58,10 @@ const AnimatedGrid = ({ isDark }: { isDark: boolean }) => {
         left: 0,
         width: "100%",
         height: "100%",
-        opacity: isDark ? 0.1 : 0.05,
+        opacity: isDark ? 0.5 : 0.5,
         backgroundImage: `
-          linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
+          linear-gradient(rgba(0, 76, 139, 0.4) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 76, 139, 0.4) 1px, transparent 1px)
         `,
         backgroundSize: "50px 50px",
         animation: "gridMove 20s linear infinite",
@@ -117,8 +117,8 @@ const AnimatedBackground = ({
         position: "relative",
         background:
           resolvedMode === "dark"
-            ? "linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)"
-            : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            ? "linear-gradient(135deg, #001127 0%, #002C54 50%, #004C8B 100%)"
+            : "linear-gradient(135deg, #D2E0FF 0%, #91B9FF 50%, #2594FF 100%)",
         display: "flex",
         alignItems: "center",
         overflow: "hidden",

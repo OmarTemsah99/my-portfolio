@@ -18,12 +18,7 @@ export const SectionHeader = ({
       <Typography
         variant="h2"
         sx={{
-          background: "linear-gradient(45deg, #8b5cf6, #06b6d4, #10b981)",
-          backgroundSize: "200% 200%",
-          animation: "gradientShift 3s ease infinite",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
+          color: "#006FC6",
           fontWeight: 800,
           fontSize: {
             xs: "2.5rem",

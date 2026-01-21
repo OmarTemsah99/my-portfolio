@@ -76,9 +76,7 @@ export default function Home() {
           size="large"
           startIcon={<PersonIcon />}
           sx={{
-            background: "linear-gradient(45deg, #8b5cf6, #06b6d4)",
-            backgroundSize: "200% 200%",
-            animation: "gradientShift 3s ease infinite",
+            background: "#006FC6",
             color: "white",
             fontWeight: 600,
             fontSize: { xs: "1rem", sm: "1.1rem" },
@@ -86,12 +84,12 @@ export default function Home() {
             px: { xs: 3, sm: 4 },
             borderRadius: "12px",
             textTransform: "none",
-            boxShadow: "0 8px 32px rgba(139, 92, 246, 0.3)",
+            boxShadow: "0 8px 32px rgba(0, 111, 198, 0.3)",
             transition: "all 0.3s ease",
             "&:hover": {
               transform: "translateY(-3px)",
-              boxShadow: "0 12px 40px rgba(139, 92, 246, 0.4)",
-              background: "linear-gradient(45deg, #7c3aed, #0891b2)",
+              boxShadow: "0 12px 40px rgba(0, 111, 198, 0.4)",
+              background: "#004C8B",
             },
           }}>
           Get to Know Me

@@ -9,13 +9,35 @@ const theme = createTheme({
     light: {
       palette: {
         mode: "light",
-        // Add your light theme colors here
+        primary: {
+          main: "#006FC6",
+          light: "#2594FF",
+          dark: "#004C8B",
+          contrastText: "#ffffff",
+        },
+        secondary: {
+          main: "#6C33C1",
+          light: "#8D5FE2",
+          dark: "#441E7D",
+          contrastText: "#ffffff",
+        },
       },
     },
     dark: {
       palette: {
         mode: "dark",
-        // Add your dark theme colors here
+        primary: {
+          main: "#006FC6",
+          light: "#2594FF",
+          dark: "#004C8B",
+          contrastText: "#ffffff",
+        },
+        secondary: {
+          main: "#6C33C1",
+          light: "#8D5FE2",
+          dark: "#441E7D",
+          contrastText: "#ffffff",
+        },
       },
     },
   },

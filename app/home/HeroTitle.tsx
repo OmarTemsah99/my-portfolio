@@ -10,12 +10,7 @@ export const HeroTitle = ({ isDark, children }: HeroTitleProps) => (
   <Typography
     variant="h1"
     sx={{
-      background: "linear-gradient(45deg, #8b5cf6, #06b6d4, #10b981)",
-      backgroundSize: "200% 200%",
-      animation: "gradientShift 3s ease infinite",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
+      color: "#006FC6",
       fontWeight: 800,
       fontSize: {
         xs: "2.5rem",
@@ -25,14 +20,14 @@ export const HeroTitle = ({ isDark, children }: HeroTitleProps) => (
       },
       lineHeight: 1.1,
       mb: 3,
-      textShadow: isDark ? "0 0 30px rgba(139, 92, 246, 0.3)" : "none",
+      textShadow: isDark ? "0 0 30px rgba(0, 111, 198, 0.3)" : "none",
     }}>
     {children}
     <Box
       component="span"
       sx={{
         animation: "blink 1s infinite",
-        color: "#8b5cf6",
+        color: "#006FC6",
       }}>
       |
     </Box>

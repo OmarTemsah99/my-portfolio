@@ -316,7 +316,7 @@
 }
 
 .text-primary {
-  @apply text-blue-400;
+  color: #006FC6;
 }
 /* Slider Animation */
 @keyframes slideRightToLeft {

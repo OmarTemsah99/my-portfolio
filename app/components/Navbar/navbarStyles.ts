@@ -13,8 +13,8 @@ export const getNavbarStyles = (mode: ThemeMode) => {
         resolvedMode === "dark"
           ? "rgba(18, 18, 18, 0.8)"
           : "rgba(255, 255, 255, 0.8)",
-      borderBottomLeftRadius: "12px",
-      borderBottomRightRadius: "12px",
+      borderBottomLeftRadius: "20px",
+      borderBottomRightRadius: "20px",
       border: `1px solid ${
         resolvedMode === "dark"
           ? "rgba(255, 255, 255, 0.1)"
@@ -139,10 +139,6 @@ export const navbarClasses = {
   navLink: "relative z-10",
   navButtonOverlay:
     "absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-
-  // Mode toggle
-  modeToggleWrapper:
-    "rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10",
 
   // Mobile drawer
   drawerHeader: "flex justify-between items-center p-6",

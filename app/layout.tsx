@@ -38,10 +38,9 @@ export default function RootLayout({
           />
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <AnimatedBackground initialMode={initialMode} />
             <Navbar />
-            <AnimatedBackground initialMode={initialMode}>
-              {children}
-            </AnimatedBackground>
+            <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

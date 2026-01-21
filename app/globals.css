@@ -419,9 +419,9 @@
 }
 @keyframes gridMove {
   0% {
-    transform: translate(0, 0);
+    background-position: 0 0;
   }
   100% {
-    transform: translate(50px, 50px);
+    background-position: 50px 50px;
   }
 }

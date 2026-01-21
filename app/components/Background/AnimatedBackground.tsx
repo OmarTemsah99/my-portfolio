@@ -35,13 +35,13 @@ const FloatingParticles = ({ isDark }: { isDark: boolean }) => {
   return (
     <Box
       sx={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
         pointerEvents: "none",
-        zIndex: 0,
+        zIndex: 1,
         overflow: "hidden",
       }}>
       {particles}
@@ -53,7 +53,7 @@ const AnimatedGrid = ({ isDark }: { isDark: boolean }) => {
   return (
     <Box
       sx={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
@@ -72,10 +72,8 @@ const AnimatedGrid = ({ isDark }: { isDark: boolean }) => {
 };
 
 const AnimatedBackground = ({
-  children,
   initialMode,
 }: {
-  children: React.ReactNode;
   initialMode: "light" | "dark";
 }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -113,14 +111,16 @@ const AnimatedBackground = ({
   return (
     <Box
       sx={{
-        minHeight: "calc(100vh - 66px)",
-        position: "relative",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: -1,
         background:
           resolvedMode === "dark"
             ? "linear-gradient(135deg, #001127 0%, #002C54 50%, #004C8B 100%)"
             : "linear-gradient(135deg, #D2E0FF 0%, #91B9FF 50%, #2594FF 100%)",
-        display: "flex",
-        alignItems: "center",
         overflow: "hidden",
       }}>
       {isMounted && (
@@ -129,9 +129,6 @@ const AnimatedBackground = ({
           <FloatingParticles isDark={resolvedMode === "dark"} />
         </>
       )}
-      <Box sx={{ position: "relative", zIndex: 2, width: "100%" }}>
-        {children}
-      </Box>
     </Box>
   );
 };

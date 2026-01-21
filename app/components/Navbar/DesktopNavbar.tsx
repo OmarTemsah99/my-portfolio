@@ -13,7 +13,7 @@ interface DesktopNavbarProps {
 const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
   const { mode } = useColorScheme();
   const safeMode = resolveThemeMode(
-    (mode ?? "light") as import("./navbarUtils").ThemeMode
+    (mode ?? "light") as import("./navbarUtils").ThemeMode,
   );
   const styles = getNavbarStyles(safeMode);
 
@@ -39,9 +39,7 @@ const DesktopNavbar = ({ pages }: DesktopNavbarProps) => {
               <Box className={navbarClasses.navButtonOverlay} />
             </Button>
           ))}
-          <Box className={navbarClasses.modeToggleWrapper}>
-            <ModeToggleButton />
-          </Box>
+          <ModeToggleButton />
         </Box>
       </Toolbar>
     </AppBar>

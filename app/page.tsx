@@ -37,7 +37,7 @@ export default function Home() {
     <Container
       maxWidth="lg"
       sx={{
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 66px)",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -84,7 +84,7 @@ export default function Home() {
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
             px: { xs: 3, sm: 4 },
-            borderRadius: "50px",
+            borderRadius: "12px",
             textTransform: "none",
             boxShadow: "0 8px 32px rgba(139, 92, 246, 0.3)",
             transition: "all 0.3s ease",
@@ -94,17 +94,14 @@ export default function Home() {
               background: "linear-gradient(45deg, #7c3aed, #0891b2)",
             },
           }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            Get to Know Me
-            <BoltIcon sx={{ fontSize: "1.2rem" }} />
-          </Box>
+          Get to Know Me
         </HeroButton>
 
         <HeroButton
           href="/projects"
           variant="outlined"
           size="large"
-          startIcon={<RocketLaunchIcon />}
+          startIcon={<CodeIcon />}
           sx={{
             color: "white",
             borderColor: "rgba(255, 255, 255, 0.3)",
@@ -114,7 +111,7 @@ export default function Home() {
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
             px: { xs: 3, sm: 4 },
-            borderRadius: "50px",
+            borderRadius: "12px",
             textTransform: "none",
             transition: "all 0.3s ease",
             "&:hover": {
@@ -124,10 +121,7 @@ export default function Home() {
               boxShadow: "0 12px 40px rgba(255, 255, 255, 0.1)",
             },
           }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            View My Projects
-            <CodeIcon sx={{ fontSize: "1.2rem" }} />
-          </Box>
+          View My Projects
         </HeroButton>
       </HeroButtons>
     </Container>

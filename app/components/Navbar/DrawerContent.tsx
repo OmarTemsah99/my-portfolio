@@ -53,7 +53,7 @@ const DrawerContent = ({
           <Image
             src={logo}
             alt="Logo"
-            className="h-8 w-8 object-contain rounded-full ring-2 ring-primary/20 flex-shrink-0"
+            className="h-10 w-10 object-contain rounded-full flex-shrink-0"
           />
           <Box className="min-w-0 flex-1">
             <Typography variant="h6" className="font-bold text-primary text-sm">

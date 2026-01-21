@@ -127,12 +127,10 @@ export const navbarClasses = {
   // Logo section
   logoContainer: "flex items-center gap-3",
   logoWrapper: "relative",
-  logoImage: "h-12 w-12 object-contain rounded-full",
+  logoImage: "h-10 w-10 object-contain rounded-full",
   logoImageMobile: "h-10 w-10 object-contain rounded-full",
-  logoTitle:
-    "font-bold text-xl bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent",
-  logoTitleMobile:
-    "font-bold text-lg bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent",
+  logoTitle: "font-bold text-xl text-[#006FC6] ",
+  logoTitleMobile: "font-bold text-lg text-[#006FC6] ",
   logoSubtitle: "text-xs block -mt-1",
 
   // Navigation
@@ -144,7 +142,7 @@ export const navbarClasses = {
 
   // Mode toggle
   modeToggleWrapper:
-    "ml-2 p-1 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10",
+    "rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10",
 
   // Mobile drawer
   drawerHeader: "flex justify-between items-center p-6",

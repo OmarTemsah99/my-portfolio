@@ -81,7 +81,7 @@ const AnimatedBackground = ({
   const [isMounted, setIsMounted] = useState(false);
   const { mode } = useColorScheme();
   const [resolvedMode, setResolvedMode] = useState<"light" | "dark">(
-    initialMode
+    initialMode,
   );
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const AnimatedBackground = ({
     // Update mode when color scheme changes
     if (mode === "system") {
       const systemDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
       setResolvedMode(systemDark ? "dark" : "light");
     } else {
@@ -113,7 +113,7 @@ const AnimatedBackground = ({
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 66px)",
         position: "relative",
         background:
           resolvedMode === "dark"

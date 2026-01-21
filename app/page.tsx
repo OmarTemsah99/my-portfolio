@@ -10,10 +10,8 @@ import {
   HeroText,
   HeroTitle,
 } from "@/app/home";
-import BoltIcon from "@mui/icons-material/Bolt";
 import CodeIcon from "@mui/icons-material/Code";
 import PersonIcon from "@mui/icons-material/Person";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import { Box, Container } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import CustomLoader from "./components/CustomLoader";

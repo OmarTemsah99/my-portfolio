@@ -7,12 +7,6 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
       <Typography
         variant="h2"
         sx={{
-          background: "linear-gradient(45deg, #8b5cf6, #06b6d4, #10b981)",
-          backgroundSize: "200% 200%",
-          animation: "gradientShift 3s ease infinite",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
           fontWeight: 800,
           fontSize: {
             xs: "2.5rem",
@@ -21,8 +15,9 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
           },
           lineHeight: 1.1,
           mb: 3,
-        }}>
-        About<span style={{ color: "#8b5cf6" }}>.Me</span>
+        }}
+        className="text-primary">
+        About<span className="text-primary">.Me</span>
       </Typography>
       <Typography
         variant="h5"

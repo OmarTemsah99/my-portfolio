@@ -1,11 +1,9 @@
 "use client";
-import BoltIcon from "@mui/icons-material/Bolt";
 import CodeIcon from "@mui/icons-material/Code";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import PsychologyIcon from "@mui/icons-material/Psychology";
-import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import { Box, Button, Fade, IconButton, Typography } from "@mui/material";
 import Link from "next/link";
 
@@ -91,17 +89,13 @@ const CallToActionSection = ({
           href="/contact"
           variant="contained"
           size="large"
-          startIcon={<RocketLaunchIcon />}
           sx={{
-            background: "linear-gradient(45deg, #8b5cf6, #06b6d4)",
-            backgroundSize: "200% 200%",
-            animation: "gradientShift 3s ease infinite",
             color: "white",
             fontWeight: 600,
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
             px: { xs: 3, sm: 4 },
-            borderRadius: "50px",
+            borderRadius: "12px",
             textTransform: "none",
             boxShadow: "0 8px 32px rgba(139, 92, 246, 0.3)",
             transition: "all 0.3s ease",
@@ -110,17 +104,14 @@ const CallToActionSection = ({
               boxShadow: "0 12px 40px rgba(139, 92, 246, 0.4)",
             },
           }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            Lets Work Together
-            <BoltIcon sx={{ fontSize: "1.2rem" }} />
-          </Box>
+          Lets Work Together
         </Button>
         <Button
           component={Link}
           href="/projects"
           variant="outlined"
           size="large"
-          startIcon={<CodeIcon />}
+          endIcon={<CodeIcon />}
           sx={{
             color: "white",
             borderColor: "rgba(255, 255, 255, 0.3)",
@@ -130,7 +121,7 @@ const CallToActionSection = ({
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
             px: { xs: 3, sm: 4 },
-            borderRadius: "50px",
+            borderRadius: "12px",
             textTransform: "none",
             transition: "all 0.3s ease",
             "&:hover": {

@@ -3,16 +3,16 @@ import StatCard from "./StatCard";
 
 const statsRows = [
   [
-    { number: "3+", label: "Years of Full Stack Wizardry" },
-    { number: "404", label: "Bugs Avoided (Just Kidding)" },
-    { number: "1337", label: "Lines of Code (That I'm Proud Of)" },
-    { number: "∞", label: "Tabs Open While Debugging" },
+    { number: "3+", label: "Years Experience" },
+    { number: "50+", label: "Projects Completed" },
+    { number: "10k+", label: "Commits Pushed" },
+    { number: "100%", label: "Code Coverage (On Core)" },
   ],
   [
-    { number: "42", label: "Meaning of Life, Universe & My Commit Count" },
-    { number: "0", label: "Days Without Googling 'CSS center div'" },
-    { number: "1", label: "Break I Was Gonna Take Before Fixing That Bug" },
-    { number: "7+", label: "Programming Languages Argued With" },
+    { number: "24/7", label: "Server Uptime (DevOps)" },
+    { number: "0.5s", label: "Avg Page Load Time" },
+    { number: "15+", label: "Key Technologies" },
+    { number: "12", label: "Cloud Services Used" },
   ],
 ];
 

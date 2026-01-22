@@ -24,30 +24,36 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
         sx={{
           color: "rgba(255, 255, 255, 0.9)",
           fontWeight: 600,
-          fontSize: { xs: "1.2rem", sm: "1.5rem", md: "2rem" },
+          fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.8rem" },
           mb: 2,
+          letterSpacing: "0.5px",
         }}>
-        👨‍💻 Full Stack Developer | Code Whisperer | Bug Tamer 🐛🔥
+        Full Stack Engineer | Systems Architect | IoT Specialist
       </Typography>
       <Typography
         variant="body1"
         sx={{
           color: "rgba(255, 255, 255, 0.8)",
           fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
-          lineHeight: 1.7,
-          maxWidth: "800px",
+          lineHeight: 1.8,
+          maxWidth: "850px",
           mx: "auto",
           mb: 4,
+          fontWeight: 400,
         }}>
-        I&apos;m a Full Stack Engineer with 3+ years of experience building
-        delightful, scalable web apps—front to back and everything in between. I
-        specialize in React, Next.js, TypeScript, Node.js, and occasionally
-        bribe MongoDB with coffee to keep it cooperative. ☕
+        I am a results-driven Full Stack Engineer with over 3 years of
+        experience specializing in architecting and implementing scalable,
+        high-performance web applications. My expertise spans the entire
+        development lifecycle, from intuitive front-end interfaces using React
+        and Next.js to robust, efficient back-end systems powered by Node.js and
+        TypeScript.
         <br />
         <br />
-        Once upon a time, I dabbled in the mystical arts of Embedded Systems,
-        C/C++, and IoT—so I still know how to make LEDs blink in Morse code when
-        JavaScript fails. ✨📟
+        My technical foundation began in Embedded Systems and IoT, where I
+        developed a deep understanding of low-level optimization and hardware
+        integration using C and C++. This unique background enables me to
+        approach software engineering with a meticulous focus on efficiency and
+        reliability.
       </Typography>
       <Typography
         variant="body2"
@@ -55,14 +61,13 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
           color: "rgba(255, 255, 255, 0.7)",
           fontSize: { xs: "0.95rem", sm: "1rem" },
           fontStyle: "italic",
-          maxWidth: "600px",
+          maxWidth: "700px",
           mx: "auto",
+          lineHeight: 1.6,
         }}>
-        These days, I&apos;m all about clean code, sleek UIs that don&apos;t
-        make users cry, and APIs that actually respond (and don&apos;t ghost you
-        👻). Always learning, always building, occasionally googling &quot;how
-        to center a div&quot; just for nostalgia. Let&apos;s build cool stuff
-        and break things (responsibly). 🚀
+        Dedicated to writing clean, maintainable code and building seamless user
+        experiences. I thrive in challenging environments that require
+        innovative problem-solving and a commitment to engineering excellence.
       </Typography>
     </Box>
   </Fade>

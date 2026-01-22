@@ -54,15 +54,16 @@ export default function Home() {
       <HeroText isVisible={isVisible}>
         <HeroSubtitle>Full Stack Developer & IoT Wizard</HeroSubtitle>
         <HeroDescription>
-          I turn coffee into code and ideas into reality! ☕✨
+          I transform complex ideas into reality through clean code and
+          innovative solutions.
           <br />
-          From embedded systems that talk to each other (they&apos;re quite
-          chatty) to React apps that make users go &quot;Wow!&quot;, I craft
-          digital experiences that are both functional and delightfully smooth.
+          From robust embedded systems to high-performance React applications, I
+          craft digital experiences that are functional, scalable, and
+          delightfully smooth.
           <br />
           <Box component="span" sx={{ fontStyle: "italic", opacity: 0.8 }}>
-            Warning: May contain traces of Python, C++, and an unhealthy
-            obsession with clean code! 🐍⚡
+            Specializing in Python, C++, and modern web technologies with a
+            focus on clean, maintainable architecture.
           </Box>
         </HeroDescription>
       </HeroText>

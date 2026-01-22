@@ -61,9 +61,9 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
       }}>
       <SectionHeader
         title="My.Skills"
-        subtitle="Technical Arsenal & Professional Superpowers"
+        subtitle="Technical Expertise & Professional Proficiency"
         isVisible={isVisible}
-        emoji="🛠️⚡"
+        emoji=""
       />
 
       {/* Fun Facts Section */}
@@ -98,7 +98,7 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
               textAlign: "center",
               mb: 4,
             }}>
-            💻 Technical Skills
+            Technical Skills
           </Typography>
 
           {skillCategories.length === 0 ? (
@@ -185,7 +185,7 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
               fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
               mb: 4,
             }}>
-            🤝 Interpersonal Skills
+            Interpersonal Skills
           </Typography>
 
           <Grid container spacing={3} justifyContent="center">
@@ -213,9 +213,9 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
               mt: 4,
               fontStyle: "italic",
             }}>
-            &quot;The best code is written by humans, for humans. These soft
-            skills help me bridge the gap between complex technology and
-            real-world solutions.&quot; 🌟
+            &quot;Effective communication and collaboration are essential to
+            successful engineering. These skills enable the bridge between
+            complex technical solutions and business objectives.&quot;
           </Typography>
         </Box>
       </Fade>

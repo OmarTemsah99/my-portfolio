@@ -1,10 +1,11 @@
 "use client";
 
-import { Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import CustomLoader from "../components/CustomLoader";
 import { useMounted } from "../hooks/useMounted";
+import { GithubContributions } from "../components/GithubContributions";
 import {
   CallToActionSection,
   HeroSection,
@@ -39,6 +40,11 @@ const AboutPage = () => {
         }}>
         <HeroSection isVisible={isVisible} />
         <StatsSection isDark={isDark} />
+
+        <Box sx={{ mb: { xs: 8, md: 12 }, textAlign: "center" }}>
+          <GithubContributions />
+        </Box>
+
         <ServicesSection isVisible={isVisible} isDark={isDark} />
         <CallToActionSection isVisible={isVisible} isDark={isDark} />
       </Container>

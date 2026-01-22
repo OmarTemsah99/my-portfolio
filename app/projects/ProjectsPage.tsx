@@ -53,7 +53,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
         title="My.Projects"
         subtitle="Digital Experiences & Technical Solutions"
         isVisible={isVisible}
-        emoji="🚀💻"
+        emoji=""
       />
 
       {/* Project Stats Section */}
@@ -88,7 +88,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
               textAlign: "center",
               mb: 4,
             }}>
-            💼 Featured Projects
+            Featured Projects
           </Typography>
 
           {projects.length === 0 ? (
@@ -109,7 +109,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
                   color: "rgba(255, 255, 255, 0.7)",
                   mb: 2,
                 }}>
-                🔍 No Projects Found
+                No Projects Found
               </Typography>
               <Typography
                 variant="body1"

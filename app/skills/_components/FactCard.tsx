@@ -22,7 +22,7 @@ export const FactCard = ({
       sx={{
         background: isDark
           ? "rgba(255, 255, 255, 0.05)"
-          : "rgba(255, 255, 255, 0.1)",
+          : "rgba(255, 255, 255, 0.05)",
         backdropFilter: "blur(20px)",
         border: `1px solid ${
           isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.2)"
@@ -61,7 +61,6 @@ export const FactCard = ({
         <Typography
           variant="body2"
           sx={{
-            color: "rgba(255, 255, 255, 0.8)",
             fontWeight: 500,
             fontSize: { xs: "0.8rem", sm: "0.85rem" },
             lineHeight: 1.3,

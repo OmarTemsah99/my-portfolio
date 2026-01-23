@@ -52,7 +52,6 @@ export const InterpersonalSkillCard = ({
       <Typography
         variant="body1"
         sx={{
-          color: "rgba(255, 255, 255, 0.9)",
           fontWeight: 500,
           fontSize: { xs: "0.85rem", sm: "0.9rem" },
           textAlign: "center",

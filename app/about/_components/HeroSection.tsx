@@ -22,7 +22,6 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
       <Typography
         variant="h5"
         sx={{
-          color: "rgba(255, 255, 255, 0.9)",
           fontWeight: 600,
           fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.8rem" },
           mb: 2,
@@ -33,13 +32,12 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
       <Typography
         variant="body1"
         sx={{
-          color: "rgba(255, 255, 255, 0.8)",
           fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
           lineHeight: 1.8,
           maxWidth: "850px",
           mx: "auto",
           mb: 4,
-          fontWeight: 400,
+          fontWeight: 500,
         }}>
         I am a results-driven Full Stack Engineer with over 3 years of
         experience specializing in architecting and implementing scalable,
@@ -58,12 +56,12 @@ const HeroSection = ({ isVisible }: { isVisible: boolean }) => (
       <Typography
         variant="body2"
         sx={{
-          color: "rgba(255, 255, 255, 0.7)",
           fontSize: { xs: "0.95rem", sm: "1rem" },
           fontStyle: "italic",
           maxWidth: "700px",
           mx: "auto",
           lineHeight: 1.6,
+          fontWeight: 300,
         }}>
         Dedicated to writing clean, maintainable code and building seamless user
         experiences. I thrive in challenging environments that require

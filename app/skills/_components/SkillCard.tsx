@@ -78,7 +78,6 @@ export const SkillCard = ({
           <Typography
             variant="h5"
             sx={{
-              color: "rgba(255, 255, 255, 0.9)",
               fontWeight: 600,
               fontSize: { xs: "1.2rem", sm: "1.4rem" },
             }}>

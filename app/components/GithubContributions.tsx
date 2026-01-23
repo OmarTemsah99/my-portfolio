@@ -1,16 +1,9 @@
 "use client";
 
-import { GitHubCalendar } from "react-github-calendar";
-import {
-  Box,
-  Typography,
-  CircularProgress,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import { Box, CircularProgress, useMediaQuery, useTheme } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import { GitHubCalendar } from "react-github-calendar";
 
 export const GithubContributions = () => {
   const { mode } = useColorScheme();
@@ -47,27 +40,7 @@ export const GithubContributions = () => {
         p: { xs: 2, md: 4 },
         textAlign: "left",
       }}>
-      <Box
-        sx={{
-          mb: 3,
-          display: "flex",
-          alignItems: "center",
-          gap: 1.5,
-        }}>
-        <GitHubIcon sx={{ fontSize: "1.2rem", opacity: 0.8 }} />
-        <Typography
-          variant="subtitle2"
-          sx={{
-            fontWeight: 600,
-            letterSpacing: "1px",
-            textTransform: "uppercase",
-            color: "rgba(255, 255, 255, 0.9)",
-          }}>
-          Open Source Contributions
-        </Typography>
-      </Box>
-
-      <Box sx={{ display: "flex", justifyContent: "center", color: "white" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <GitHubCalendar
           username="OmarTemsah99"
           colorScheme={isDark ? "dark" : "light"}
@@ -75,8 +48,8 @@ export const GithubContributions = () => {
           blockSize={isMobile ? 10 : 13}
           blockMargin={4}
           theme={{
-            dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-            light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+            dark: ["#161b22", "#002a4d", "#004C8B", "#006FC6", "#2594FF"],
+            light: ["#ebedf0", "#CCE2F4", "#2594FF", "#006FC6", "#004C8B"],
           }}
         />
       </Box>

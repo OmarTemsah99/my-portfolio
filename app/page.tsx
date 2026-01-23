@@ -53,7 +53,7 @@ export default function Home() {
 
       <HeroText isVisible={isVisible}>
         <HeroSubtitle>Full Stack Developer & IoT Wizard</HeroSubtitle>
-        <HeroDescription>
+        <HeroDescription isDark={isDark}>
           I transform complex ideas into reality through clean code and
           innovative solutions.
           <br />
@@ -100,7 +100,7 @@ export default function Home() {
           size="large"
           startIcon={<CodeIcon />}
           sx={{
-            color: "white",
+            color: isDark ? "white" : "black",
             borderColor: "rgba(255, 255, 255, 0.3)",
             backdropFilter: "blur(10px)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",

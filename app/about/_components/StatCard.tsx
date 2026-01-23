@@ -24,7 +24,7 @@ const StatCard = ({ number, label, isDark }: StatCardProps) => (
       <Typography
         variant="h3"
         sx={{
-          color: "#7c3aed",
+          color: "primary.main",
           fontWeight: 800,
           fontSize: { xs: "1.5rem", sm: "1.8rem" },
           mb: 1,
@@ -35,7 +35,6 @@ const StatCard = ({ number, label, isDark }: StatCardProps) => (
       <Typography
         variant="body2"
         sx={{
-          color: "rgba(255, 255, 255, 0.8)",
           fontWeight: 500,
           fontSize: { xs: "0.75rem", sm: "0.85rem" },
           lineHeight: 1.3,

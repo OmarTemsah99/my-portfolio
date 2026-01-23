@@ -82,7 +82,6 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
           <Typography
             variant="h3"
             sx={{
-              color: "rgba(255, 255, 255, 0.9)",
               fontWeight: 700,
               fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
               textAlign: "center",

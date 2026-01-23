@@ -1,11 +1,11 @@
 "use client";
 
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import CustomLoader from "../components/CustomLoader";
-import { useMounted } from "../hooks/useMounted";
 import { GithubContributions } from "../components/GithubContributions";
+import { useMounted } from "../hooks/useMounted";
 import {
   CallToActionSection,
   HeroSection,

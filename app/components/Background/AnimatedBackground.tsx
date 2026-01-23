@@ -58,7 +58,7 @@ const AnimatedGrid = ({ isDark }: { isDark: boolean }) => {
         left: 0,
         width: "100%",
         height: "100%",
-        opacity: isDark ? 0.5 : 0.5,
+        opacity: isDark ? 0.5 : 0.2,
         backgroundImage: `
           linear-gradient(rgba(0, 76, 139, 0.4) 1px, transparent 1px),
           linear-gradient(90deg, rgba(0, 76, 139, 0.4) 1px, transparent 1px)

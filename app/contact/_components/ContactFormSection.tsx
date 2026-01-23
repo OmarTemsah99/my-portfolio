@@ -116,7 +116,6 @@ const ContactFormSection = ({
         <Typography
           variant="h4"
           sx={{
-            color: "rgba(255, 255, 255, 0.9)",
             fontWeight: 700,
             fontSize: { xs: "1.5rem", sm: "2rem", md: "2.5rem" },
             mb: 4,
@@ -145,25 +144,6 @@ const ContactFormSection = ({
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "12px",
-                color: "rgba(255, 255, 255, 0.9)",
-                "& fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.3)",
-                },
-                "&:hover fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.5)",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.7)",
-                },
-              },
-              "& .MuiInputLabel-root": {
-                color: "rgba(255, 255, 255, 0.7)",
-                "&.Mui-focused": {
-                  color: "rgba(255, 255, 255, 0.9)",
-                },
-              },
-              "& .MuiFormHelperText-root": {
-                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -178,25 +158,6 @@ const ContactFormSection = ({
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "12px",
-                color: "rgba(255, 255, 255, 0.9)",
-                "& fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.3)",
-                },
-                "&:hover fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.5)",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.7)",
-                },
-              },
-              "& .MuiInputLabel-root": {
-                color: "rgba(255, 255, 255, 0.7)",
-                "&.Mui-focused": {
-                  color: "rgba(255, 255, 255, 0.9)",
-                },
-              },
-              "& .MuiFormHelperText-root": {
-                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -211,25 +172,6 @@ const ContactFormSection = ({
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "12px",
-                color: "rgba(255, 255, 255, 0.9)",
-                "& fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.3)",
-                },
-                "&:hover fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.5)",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.7)",
-                },
-              },
-              "& .MuiInputLabel-root": {
-                color: "rgba(255, 255, 255, 0.7)",
-                "&.Mui-focused": {
-                  color: "rgba(255, 255, 255, 0.9)",
-                },
-              },
-              "& .MuiFormHelperText-root": {
-                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -246,25 +188,6 @@ const ContactFormSection = ({
             sx={{
               "& .MuiOutlinedInput-root": {
                 borderRadius: "12px",
-                color: "rgba(255, 255, 255, 0.9)",
-                "& fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.3)",
-                },
-                "&:hover fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.5)",
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: "rgba(255, 255, 255, 0.7)",
-                },
-              },
-              "& .MuiInputLabel-root": {
-                color: "rgba(255, 255, 255, 0.7)",
-                "&.Mui-focused": {
-                  color: "rgba(255, 255, 255, 0.9)",
-                },
-              },
-              "& .MuiFormHelperText-root": {
-                color: "rgba(255, 100, 100, 0.8)",
               },
             }}
           />
@@ -313,7 +236,6 @@ const ContactFormSection = ({
               display: "flex",
               alignItems: "center",
               gap: 2,
-              color: "rgba(255, 255, 255, 0.9)",
             }}>
             <EmailIcon sx={{ fontSize: "1.5rem" }} />
             <Typography>omartemsah99@gmail.com</Typography>
@@ -324,7 +246,6 @@ const ContactFormSection = ({
               display: "flex",
               alignItems: "center",
               gap: 2,
-              color: "rgba(255, 255, 255, 0.9)",
             }}>
             <PhoneIcon sx={{ fontSize: "1.5rem" }} />
             <Typography>+20 1144396699</Typography>
@@ -335,7 +256,6 @@ const ContactFormSection = ({
               display: "flex",
               alignItems: "center",
               gap: 2,
-              color: "rgba(255, 255, 255, 0.9)",
             }}>
             <LocationOnIcon sx={{ fontSize: "1.5rem" }} />
             <Typography>New Cairo, First Settlement, Egypt</Typography>
@@ -353,7 +273,6 @@ const ContactFormSection = ({
               href="https://tinyurl.com/O-T-T-Linkedin"
               target="_blank"
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -371,7 +290,6 @@ const ContactFormSection = ({
               href="https://github.com/OmarTemsah99"
               target="_blank"
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -389,7 +307,6 @@ const ContactFormSection = ({
               href="https://www.facebook.com/share/1Ei3FRxgQT/"
               target="_blank"
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -407,7 +324,6 @@ const ContactFormSection = ({
               href="https://www.instagram.com/omar_temsah99?igsh=MXc0aDFhM2Vna2JncQ=="
               target="_blank"
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -428,7 +344,9 @@ const ContactFormSection = ({
               href="https://drive.google.com/uc?export=download&id=1x5b6iSKKLhDnfXukavn4gKB8ZFD4IjQG"
               download
               sx={{
-                color: "rgba(255, 255, 255, 0.8)",
+                color: isDark
+                  ? "rgba(255, 255, 255, 0.8)"
+                  : "rgba(0, 0, 0, 0.8)",
                 borderColor: "rgba(255, 255, 255, 0.3)",
                 backdropFilter: "blur(10px)",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -437,8 +355,9 @@ const ContactFormSection = ({
                 mt: { xs: 2, sm: 0 },
                 width: { xs: "100%", sm: "auto" },
                 "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.2)",
-                  borderColor: "rgba(255, 255, 255, 0.5)",
+                  backgroundColor: isDark
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "rgba(0, 0, 0, 0.2)",
                 },
               }}>
               Download Resume

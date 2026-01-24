@@ -201,13 +201,14 @@ export const ProjectCard = ({
                 size="small"
                 sx={{
                   fontSize: "0.68rem",
+                  borderRadius: "6px",
                   height: 22,
-                  background: "rgba(6,182,212,.15)",
                   border: "1px solid rgba(6,182,212,.5)",
                   "&:hover": {
-                    background: "rgba(6,182,212,.3)",
+                    cursor: "default",
                   },
                 }}
+                color="primary"
               />
             ))}
           </Stack>

@@ -61,7 +61,6 @@ export const ProjectStats = ({
         <Typography
           variant="body2"
           sx={{
-            color: "rgba(255, 255, 255, 0.8)",
             fontWeight: 500,
             fontSize: { xs: "0.8rem", sm: "0.85rem" },
             lineHeight: 1.3,

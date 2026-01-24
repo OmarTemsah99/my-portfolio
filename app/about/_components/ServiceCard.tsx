@@ -84,7 +84,6 @@ const ServiceCard = ({
         <Typography
           variant="body1"
           sx={{
-            color: "rgba(255, 255, 255, 0.7)",
             lineHeight: 1.6,
             fontSize: { xs: "0.95rem", sm: "1rem" },
           }}>

@@ -73,7 +73,7 @@ export default function Home() {
           href="/about"
           variant="contained"
           size="large"
-          startIcon={<PersonIcon />}
+          endIcon={<PersonIcon />}
           sx={{
             background: "#006FC6",
             color: "white",
@@ -98,9 +98,9 @@ export default function Home() {
           href="/projects"
           variant="outlined"
           size="large"
-          startIcon={<CodeIcon />}
+          endIcon={<CodeIcon />}
           sx={{
-            color: isDark ? "white" : "black",
+            color: "white",
             borderColor: "rgba(255, 255, 255, 0.3)",
             backdropFilter: "blur(10px)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",

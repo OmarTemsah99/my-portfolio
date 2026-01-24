@@ -62,7 +62,6 @@ const CallToActionSection = ({
       <Typography
         variant="body1"
         sx={{
-          color: "rgba(255, 255, 255, 0.8)",
           fontSize: { xs: "1rem", sm: "1.1rem" },
           lineHeight: 1.6,
           maxWidth: "600px",
@@ -136,7 +135,6 @@ const CallToActionSection = ({
         <IconButton
           href="https://tinyurl.com/O-T-T-Linkedin"
           sx={{
-            color: "rgba(255, 255, 255, 0.8)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             backdropFilter: "blur(10px)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -152,7 +150,6 @@ const CallToActionSection = ({
         <IconButton
           href="https://github.com/OmarTemsah99"
           sx={{
-            color: "rgba(255, 255, 255, 0.8)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             backdropFilter: "blur(10px)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -168,7 +165,6 @@ const CallToActionSection = ({
         <IconButton
           href="mailto:omartemsah99@gmail.com"
           sx={{
-            color: "rgba(255, 255, 255, 0.8)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
             backdropFilter: "blur(10px)",
             border: "1px solid rgba(255, 255, 255, 0.2)",

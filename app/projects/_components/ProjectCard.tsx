@@ -6,11 +6,13 @@ import {
   Chip,
   IconButton,
   Slide,
+  Stack,
 } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 interface Project {
   id: string;
@@ -35,225 +37,294 @@ export const ProjectCard = ({
   isDark,
   isVisible,
   delay = 0,
-}: ProjectCardProps) => (
-  <Slide direction="up" in={isVisible} timeout={1000 + delay}>
-    <Card
-      sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        background: isDark
-          ? "rgba(255, 255, 255, 0.05)"
-          : "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(20px)",
-        border: `1px solid ${
-          isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.2)"
-        }`,
-        borderRadius: "20px",
-        transition: "all 0.4s ease",
-        position: "relative",
-        overflow: "hidden",
-        "&:hover": {
-          transform: "translateY(-10px)",
-          boxShadow: "0 25px 50px rgba(139, 92, 246, 0.3)",
-        },
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "4px",
-          background: "linear-gradient(135deg, #8b5cf6, #06b6d4)",
-        },
-      }}>
-      {/* Optimized Image Container */}
-      <Box
-        sx={{
-          position: "relative",
-          width: "100%",
-          height: 180, // Slightly reduced for more content space
-          backgroundColor: "linear-gradient(135deg, #1a1a1a, #2d2d2d)",
-          overflow: "hidden",
-        }}>
-        {project.image ? (
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            style={{
-              objectFit: "cover",
-            }}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        ) : (
-          <Box
-            sx={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "linear-gradient(135deg, #1a1a1a, #2d2d2d)",
-            }}>
-            <Typography
-              variant="h6"
-              sx={{
-                color: "rgba(255, 255, 255, 0.5)",
-                fontWeight: 500,
-              }}>
-              No Image
-            </Typography>
-          </Box>
-        )}
-      </Box>
+}: ProjectCardProps) => {
+  const [expanded, setExpanded] = useState(false);
+  const [contentHeight, setContentHeight] = useState<string | number>("auto");
+  const contentRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
 
-      {/* Flexible Content Container */}
-      <CardContent
+  const handleToggle = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent card click if any
+    if (contentRef.current) {
+      // Set fixed height to current height before state update triggers render
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+    setExpanded(!expanded);
+  };
+
+  useEffect(() => {
+    if (measureRef.current) {
+      // Measure the inner content height immediately after render
+      const targetHeight = measureRef.current.offsetHeight;
+      setContentHeight(targetHeight);
+
+      // Reset to auto after transition
+      const timer = setTimeout(() => {
+        setContentHeight("auto");
+      }, 400); // Match transition duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [expanded]);
+
+  return (
+    <Slide direction="up" in={isVisible} timeout={900 + delay}>
+      <Card
+        tabIndex={0}
         sx={{
-          flexGrow: 1,
-          p: 3,
+          height: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: 2,
+          position: "relative",
+          overflow: "visible", // Changed to visible for proper scaling
+          borderRadius: "22px",
+          background: isDark
+            ? "rgba(255,255,255,0.04)"
+            : "rgba(255,255,255,0.12)",
+          backdropFilter: "blur(18px)",
+          border: "1px solid rgba(255,255,255,0.12)",
+          transition: "transform .45s ease, box-shadow .45s ease",
+          "&:hover, &:focus-visible": {
+            transform: "translateY(-8px)",
+            boxShadow:
+              "0 0 0 1px rgba(139,92,246,.5), 0 30px 60px rgba(139,92,246,.25)",
+            zIndex: 1,
+          },
         }}>
-        {/* Title - Responsive sizing */}
-        <Typography
-          variant="h5"
+        {/* Image */}
+        <Box
           sx={{
-            fontWeight: 600,
-            fontSize: { xs: "1.1rem", sm: "1.3rem" },
-            lineHeight: 1.2,
-            wordBreak: "break-word",
+            position: "relative",
+            height: 190,
+            overflow: "hidden",
+            borderTopLeftRadius: "22px",
+            borderTopRightRadius: "22px",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(to top, rgba(0,0,0,.55), transparent 60%)",
+              opacity: 0,
+              transition: "opacity .4s ease",
+            },
+            "&:hover::after": { opacity: 1 },
+            "& img": {
+              transition: "transform .6s ease",
+            },
+            "&:hover img": {
+              transform: "scale(1.06)",
+            },
           }}>
-          {project.title}
-        </Typography>
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              style={{ objectFit: "cover" }}
+            />
+          ) : (
+            <Box
+              sx={{
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                background: "linear-gradient(135deg, #1f2937, #111827)",
+              }}>
+              <Typography color="rgba(255,255,255,.5)">No preview</Typography>
+            </Box>
+          )}
+        </Box>
 
-        {/* Description - Full content with good spacing */}
-        <Typography
-          variant="body2"
+        <CardContent
           sx={{
-            color: "rgba(255, 255, 255, 0.7)",
-            lineHeight: 1.5,
-            fontSize: "0.9rem",
-            wordBreak: "break-word",
             flexGrow: 1,
+            p: 3,
+            display: "flex",
+            flexDirection: "column",
+            gap: 1.5,
           }}>
-          {project.description}
-        </Typography>
-
-        {/* Tags - Responsive grid layout */}
-        <Box sx={{ mt: 1 }}>
-          <Box
+          <Typography
+            variant="h6"
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 0.8,
-              alignItems: "flex-start",
+              fontWeight: 600,
+              lineHeight: 1.25,
             }}>
-            {project.tags.map((tag, index) => (
+            {project.title}
+          </Typography>
+
+          <Box
+            ref={contentRef}
+            sx={{
+              height: contentHeight,
+              overflow: "hidden",
+              transition: "height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+            }}>
+            <Box ref={measureRef}>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "text.secondary",
+                  lineHeight: 1.55,
+                }}>
+                {expanded
+                  ? project.description
+                  : project.description.slice(0, 100) +
+                    (project.description.length > 100 ? "..." : "")}
+                {project.description.length > 100 && (
+                  <Box
+                    component="span"
+                    onClick={handleToggle}
+                    sx={{
+                      color: "primary.main",
+                      cursor: "pointer",
+                      fontWeight: 500,
+                      ml: 1,
+                      "&:hover": {
+                        textDecoration: "underline",
+                      },
+                    }}>
+                    {expanded ? "Show less" : "Show more"}
+                  </Box>
+                )}
+              </Typography>
+            </Box>
+          </Box>
+
+          {/* Tags */}
+          <Stack direction="row" flexWrap="wrap" gap={0.8} mt={0.5}>
+            {project.tags.map((tag) => (
               <Chip
-                key={index}
+                key={tag}
                 label={tag}
                 size="small"
                 sx={{
-                  background: "rgba(6, 182, 212, 0.18)",
-                  color: "#e4e4e7",
-                  border: "1px solid #06b6d4",
-                  fontSize: "0.7rem",
-                  height: "1.4rem",
-                  fontWeight: 500,
-                  "& .MuiChip-label": {
-                    px: 1,
-                  },
+                  fontSize: "0.68rem",
+                  height: 22,
+                  background: "rgba(6,182,212,.15)",
+                  border: "1px solid rgba(6,182,212,.5)",
                   "&:hover": {
-                    background: "rgba(6, 182, 212, 0.32)",
-                    transform: "scale(1.05)",
+                    background: "rgba(6,182,212,.3)",
                   },
-                  transition: "all 0.2s ease",
                 }}
               />
             ))}
+          </Stack>
+
+          {/* Actions */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: 1,
+              justifyContent: "flex-end",
+              mt: "auto",
+              opacity: 0,
+              transform: "translateY(6px)",
+              transition: "all .35s ease",
+              ".MuiCard-root:hover &": {
+                opacity: 1,
+                transform: "translateY(0)",
+              },
+            }}>
+            {project.liveUrl && (
+              <IconButton
+                href={project.liveUrl}
+                component="a"
+                target="_blank"
+                sx={{
+                  background: "linear-gradient(135deg,#10b981,#059669)",
+                  color: "#fff",
+                  position: "relative",
+                  overflow: "hidden",
+                  transition:
+                    "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  "&:hover": {
+                    transform: "scale(1.08)",
+                  },
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    inset: 0,
+                    background: "rgba(255,255,255,0.15)",
+                    transform: "scale(0)",
+                    transition: "transform 0.3s ease-out",
+                    borderRadius: "50%",
+                  },
+                  "&:hover::before": {
+                    transform: "scale(1)",
+                  },
+                }}>
+                <LaunchIcon fontSize="small" />
+              </IconButton>
+            )}
+
+            {project.demoUrl && (
+              <IconButton
+                href={project.demoUrl}
+                component="a"
+                target="_blank"
+                sx={{
+                  background: "linear-gradient(135deg,#06b6d4,#0891b2)",
+                  color: "#fff",
+                  position: "relative",
+                  overflow: "hidden",
+                  transition:
+                    "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  "&:hover": {
+                    transform: "scale(1.08)",
+                  },
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    inset: 0,
+                    background: "rgba(255,255,255,0.15)",
+                    transform: "scale(0)",
+                    transition: "transform 0.3s ease-out",
+                    borderRadius: "50%",
+                  },
+                  "&:hover::before": {
+                    transform: "scale(1)",
+                  },
+                }}>
+                <VisibilityIcon fontSize="small" />
+              </IconButton>
+            )}
+
+            {project.githubUrl && (
+              <IconButton
+                href={project.githubUrl}
+                component="a"
+                target="_blank"
+                sx={{
+                  background: "linear-gradient(135deg,#374151,#111827)",
+                  color: "#fff",
+                  position: "relative",
+                  overflow: "hidden",
+                  transition:
+                    "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                  "&:hover": {
+                    transform: "scale(1.08)",
+                  },
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    inset: 0,
+                    background: "rgba(255,255,255,0.15)",
+                    transform: "scale(0)",
+                    transition: "transform 0.3s ease-out",
+                    borderRadius: "50%",
+                  },
+                  "&:hover::before": {
+                    transform: "scale(1)",
+                  },
+                }}>
+                <GitHubIcon fontSize="small" />
+              </IconButton>
+            )}
           </Box>
-        </Box>
-
-        {/* Action Buttons - Always at bottom with better spacing */}
-        <Box
-          sx={{
-            display: "flex",
-            gap: 1,
-            justifyContent: "flex-end",
-            alignItems: "center",
-            pt: 1,
-            mt: "auto",
-          }}>
-          {project.liveUrl && (
-            <IconButton
-              component="a"
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="View Live Site"
-              sx={{
-                background: "linear-gradient(135deg, #10b981, #059669)",
-                color: "white",
-                width: 36,
-                height: 36,
-                "&:hover": {
-                  background: "linear-gradient(135deg, #059669, #047857)",
-                  transform: "scale(1.1)",
-                },
-                transition: "all 0.2s ease",
-              }}>
-              <LaunchIcon fontSize="small" />
-            </IconButton>
-          )}
-
-          {project.demoUrl && (
-            <IconButton
-              component="a"
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="View Demo"
-              sx={{
-                background: "linear-gradient(135deg, #06b6d4, #0891b2)",
-                color: "white",
-                width: 36,
-                height: 36,
-                "&:hover": {
-                  background: "linear-gradient(135deg, #0891b2, #0e7490)",
-                  transform: "scale(1.1)",
-                },
-                transition: "all 0.2s ease",
-              }}>
-              <VisibilityIcon fontSize="small" />
-            </IconButton>
-          )}
-
-          {project.githubUrl && (
-            <IconButton
-              component="a"
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="View Source Code"
-              sx={{
-                background: "linear-gradient(135deg, #374151, #1f2937)",
-                color: "white",
-                width: 36,
-                height: 36,
-                "&:hover": {
-                  background: "linear-gradient(135deg, #1f2937, #111827)",
-                  transform: "scale(1.1)",
-                },
-                transition: "all 0.2s ease",
-              }}>
-              <GitHubIcon fontSize="small" />
-            </IconButton>
-          )}
-        </Box>
-      </CardContent>
-    </Card>
-  </Slide>
-);
+        </CardContent>
+      </Card>
+    </Slide>
+  );
+};

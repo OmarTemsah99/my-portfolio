@@ -4,9 +4,14 @@ import { ReactNode } from "react";
 interface HeroButtonsProps {
   isVisible: boolean;
   children: ReactNode;
+  isMobile: boolean;
 }
 
-export const HeroButtons = ({ isVisible, children }: HeroButtonsProps) => (
+export const HeroButtons = ({
+  isVisible,
+  children,
+  isMobile,
+}: HeroButtonsProps) => (
   <Fade in={isVisible} timeout={2000}>
     <Box
       sx={{
@@ -15,8 +20,22 @@ export const HeroButtons = ({ isVisible, children }: HeroButtonsProps) => (
         justifyContent: "center",
         flexDirection: { xs: "column", sm: "row" },
         alignItems: "center",
+        width: "100%",
       }}>
-      {children}
+      {isMobile ? (
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            flexDirection: "column",
+            width: "100%",
+            alignItems: "stretch",
+          }}>
+          {children}
+        </Box>
+      ) : (
+        children
+      )}
     </Box>
   </Fade>
 );

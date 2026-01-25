@@ -10,9 +10,11 @@ import Link from "next/link";
 const CallToActionSection = ({
   isVisible,
   isDark,
+  isMobile,
 }: {
   isVisible: boolean;
   isDark: boolean;
+  isMobile: boolean;
 }) => (
   <Fade in={isVisible} timeout={2000}>
     <Box
@@ -79,7 +81,9 @@ const CallToActionSection = ({
           gap: 3,
           justifyContent: "center",
           flexDirection: { xs: "column", sm: "row" },
-          alignItems: "center",
+          alignItems: { xs: "stretch", sm: "center" },
+          width: { xs: "100%", sm: "auto" },
+          mx: "auto",
           mb: 4,
         }}>
         <Button
@@ -88,18 +92,22 @@ const CallToActionSection = ({
           variant="contained"
           size="large"
           sx={{
+            background: "#006FC6",
+            border: "1px solid transparent",
             color: "white",
+            width: isMobile ? "100%" : "auto",
             fontWeight: 600,
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
             px: { xs: 3, sm: 4 },
             borderRadius: "12px",
             textTransform: "none",
-            boxShadow: "0 8px 32px rgba(139, 92, 246, 0.3)",
+            boxShadow: "0 8px 32px rgba(0, 111, 198, 0.3)",
             transition: "all 0.3s ease",
             "&:hover": {
               transform: "translateY(-3px)",
-              boxShadow: "0 12px 40px rgba(139, 92, 246, 0.4)",
+              boxShadow: "0 12px 40px rgba(0, 111, 198, 0.4)",
+              background: "#004C8B",
             },
           }}>
           Lets Work Together
@@ -115,6 +123,7 @@ const CallToActionSection = ({
             borderColor: "rgba(255, 255, 255, 0.3)",
             backdropFilter: "blur(10px)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: isMobile ? "100%" : "auto",
             fontWeight: 600,
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
@@ -126,6 +135,7 @@ const CallToActionSection = ({
               backgroundColor: "rgba(255, 255, 255, 0.2)",
               borderColor: "rgba(255, 255, 255, 0.5)",
               transform: "translateY(-3px)",
+              boxShadow: "0 12px 40px rgba(255, 255, 255, 0.1)",
             },
           }}>
           View My Work

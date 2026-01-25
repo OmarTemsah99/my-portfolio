@@ -12,16 +12,18 @@ import {
 } from "@/app/home";
 import CodeIcon from "@mui/icons-material/Code";
 import PersonIcon from "@mui/icons-material/Person";
-import { Box, Container } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import CustomLoader from "./components/CustomLoader";
 import { useMounted } from "./hooks/useMounted";
 import { useTypewriterEffect } from "./hooks/useTypewriterEffect";
+import theme from "./theme";
 
 export default function Home() {
   const mounted = useMounted();
   const { mode } = useColorScheme();
   const currentText = useTypewriterEffect("Omar Temsah", 150);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const isDark = mounted ? mode === "dark" : false;
   const isVisible = mounted;
 
@@ -68,7 +70,7 @@ export default function Home() {
         </HeroDescription>
       </HeroText>
 
-      <HeroButtons isVisible={isVisible}>
+      <HeroButtons isVisible={isVisible} isMobile={isMobile}>
         <HeroButton
           href="/about"
           variant="contained"
@@ -76,7 +78,9 @@ export default function Home() {
           endIcon={<PersonIcon />}
           sx={{
             background: "#006FC6",
+            border: "1px solid transparent",
             color: "white",
+            width: { md: "100%", lg: "auto" },
             fontWeight: 600,
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },
@@ -104,6 +108,7 @@ export default function Home() {
             borderColor: "rgba(255, 255, 255, 0.3)",
             backdropFilter: "blur(10px)",
             backgroundColor: "rgba(255, 255, 255, 0.1)",
+            width: isMobile ? "100%" : "auto",
             fontWeight: 600,
             fontSize: { xs: "1rem", sm: "1.1rem" },
             py: { xs: 1.5, sm: 2 },

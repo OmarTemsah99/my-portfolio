@@ -18,7 +18,7 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
   const { mode } = useColorScheme();
   // Use resolveThemeMode to ensure mode is always 'light' or 'dark', with correct typing
   const safeMode = resolveThemeMode(
-    (mode ?? "light") as import("./navbarUtils").ThemeMode
+    (mode ?? "light") as import("./navbarUtils").ThemeMode,
   );
   const styles = getNavbarStyles(safeMode);
 
@@ -38,7 +38,6 @@ const MobileNavbar = ({ pages }: MobileNavbarProps) => {
 
           {/* Mobile Menu Button */}
           <IconButton
-            edge="end"
             color="inherit"
             aria-label="menu"
             onClick={handleDrawerToggle(true)}

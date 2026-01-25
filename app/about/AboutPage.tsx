@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import CustomLoader from "../components/CustomLoader";
@@ -12,11 +12,13 @@ import {
   ServicesSection,
   StatsSection,
 } from "./_components";
+import theme from "../theme";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const mounted = useMounted();
   const { mode } = useColorScheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
     if (mounted) setIsVisible(true);
@@ -46,7 +48,11 @@ const AboutPage = () => {
         </Box>
 
         <ServicesSection isVisible={isVisible} isDark={isDark} />
-        <CallToActionSection isVisible={isVisible} isDark={isDark} />
+        <CallToActionSection
+          isVisible={isVisible}
+          isDark={isDark}
+          isMobile={isMobile}
+        />
       </Container>
     </>
   );

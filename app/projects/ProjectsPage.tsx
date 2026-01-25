@@ -1,8 +1,16 @@
 "use client";
 
-import { Box, Container, Fade, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Fade,
+  Grid,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { useColorScheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import theme from "../theme";
 import CustomLoader from "../components/CustomLoader";
 import { useMounted } from "../hooks/useMounted";
 import { ProjectCard, ProjectStats, SectionHeader } from "./_components";
@@ -33,6 +41,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
   }, [mounted]);
 
   const isDark = mounted ? mode === "dark" : false;
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   if (!mounted) {
     return (
@@ -128,6 +137,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps) => {
                     isDark={isDark}
                     isVisible={isVisible}
                     delay={index * 200}
+                    isMobile={isMobile}
                   />
                 </Grid>
               ))}

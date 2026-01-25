@@ -30,6 +30,7 @@ interface ProjectCardProps {
   isDark: boolean;
   isVisible: boolean;
   delay?: number;
+  isMobile: boolean;
 }
 
 export const ProjectCard = ({
@@ -37,6 +38,7 @@ export const ProjectCard = ({
   isDark,
   isVisible,
   delay = 0,
+  isMobile,
 }: ProjectCardProps) => {
   const [expanded, setExpanded] = useState(false);
   const [contentHeight, setContentHeight] = useState<string | number>("auto");
@@ -220,8 +222,8 @@ export const ProjectCard = ({
               gap: 1,
               justifyContent: "flex-end",
               mt: "auto",
-              opacity: 0,
-              transform: "translateY(6px)",
+              opacity: isMobile ? 1 : 0,
+              transform: isMobile ? "translateY(0)" : "translateY(6px)",
               transition: "all .35s ease",
               ".MuiCard-root:hover &": {
                 opacity: 1,

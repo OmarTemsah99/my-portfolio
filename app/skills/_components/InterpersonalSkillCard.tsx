@@ -20,6 +20,7 @@ export const InterpersonalSkillCard = ({
     <Box
       sx={{
         display: "flex",
+        height: "100%",
         flexDirection: "column",
         alignItems: "center",
         gap: 2,

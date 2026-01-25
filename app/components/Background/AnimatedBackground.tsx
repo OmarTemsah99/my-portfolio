@@ -86,26 +86,10 @@ const AnimatedBackground = ({
     setIsMounted(true);
     // Update mode when color scheme changes
     if (mode === "system") {
-      const systemDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      setResolvedMode(systemDark ? "dark" : "light");
+      setResolvedMode("dark");
     } else {
-      setResolvedMode(mode || "light");
+      setResolvedMode(mode || "dark");
     }
-  }, [mode]);
-
-  // Watch for system preference changes
-  useEffect(() => {
-    if (mode !== "system") return;
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      setResolvedMode(e.matches ? "dark" : "light");
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
   }, [mode]);
 
   return (

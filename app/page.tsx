@@ -53,7 +53,7 @@ export default function Home() {
 
       <HeroText isVisible={isVisible}>
         <HeroSubtitle>Full Stack Developer & IoT Wizard</HeroSubtitle>
-        <HeroDescription isDark={isDark}>
+        <HeroDescription>
           I transform complex ideas into reality through clean code and
           innovative solutions.
           <br />

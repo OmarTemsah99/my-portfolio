@@ -33,10 +33,13 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <InitColorSchemeScript
             attribute="class"
-            defaultMode="system"
-            modeStorageKey="mui-mode"
+            defaultMode="dark"
+            modeStorageKey="theme-mode"
           />
-          <ThemeProvider theme={theme}>
+          <ThemeProvider
+            theme={theme}
+            defaultMode="dark"
+            modeStorageKey="theme-mode">
             <CssBaseline />
             <AnimatedBackground initialMode={initialMode} />
             <Navbar />

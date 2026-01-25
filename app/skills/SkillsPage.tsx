@@ -203,7 +203,6 @@ const SkillsPage = ({ skillCategories }: SkillsPageProps) => {
           <Typography
             variant="body1"
             sx={{
-              color: "rgba(255, 255, 255, 0.7)",
               fontSize: { xs: "0.95rem", sm: "1rem" },
               lineHeight: 1.6,
               maxWidth: "600px",

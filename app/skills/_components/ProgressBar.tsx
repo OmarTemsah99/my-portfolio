@@ -24,7 +24,6 @@ export const ProgressBar = ({
       <Typography
         variant="body1"
         sx={{
-          color: "rgba(255, 255, 255, 0.8)",
           fontWeight: 500,
           fontSize: { xs: "0.9rem", sm: "1rem" },
         }}>

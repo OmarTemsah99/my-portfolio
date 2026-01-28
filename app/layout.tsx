@@ -7,6 +7,7 @@ import { CssBaseline, InitColorSchemeScript } from "@mui/material";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import AnimatedBackground from "./components/Background/AnimatedBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -43,7 +44,10 @@ export default function RootLayout({
             <CssBaseline />
             <AnimatedBackground initialMode={initialMode} />
             <Navbar />
-            <main style={{ position: "relative", zIndex: 1 }}>{children}</main>
+            <main style={{ position: "relative", zIndex: 1 }}>
+              {children}
+              <Analytics />
+            </main>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
